@@ -14,11 +14,12 @@ class _BMI_Calulator extends State<MyApp>{
 
   _findBMINow()
   {
-    int height = int.parse(heightValue.text);
+    double height = double.parse(heightValue.text);
     int weight = int.parse(weightVlaue.text);
-    //int age = int.parse(ageValue.text);
+    height /= 100.0;
     setState(() {
-      _BMI_Calulate = weight/(height * height);
+      _BMI_Calulate = weight/(height*height);
+      _BMI_Calulate=double.parse(_BMI_Calulate.toStringAsFixed(2));
     });
   }
   @override
@@ -67,17 +68,17 @@ class _BMI_Calulator extends State<MyApp>{
                 ),
               ),
             ),
-            // Padding(
-            //   padding: EdgeInsets.symmetric(vertical:20,horizontal:10),
-            //   child: TextField(
-            //     decoration: InputDecoration(
-            //       label: Text("Age",
-            //         style: TextStyle(
-            //             color: Colors.blue
-            //         ),),
-            //     ),
-            //   ),
-            // ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical:20,horizontal:10),
+              child: TextField(
+                decoration: InputDecoration(
+                  label: Text("Age",
+                    style: TextStyle(
+                        color: Colors.blue
+                    ),),
+                ),
+              ),
+            ),
             Padding(
                 padding: EdgeInsets.symmetric(vertical:20, horizontal:10),
                 child: ElevatedButton(
